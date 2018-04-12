@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.QuotesPage"
+             Padding="20">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Font Size:"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <Label x:Name="lblFontSize"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   BindingContext="{x:Reference Name=sldFontSize}"
+                   Text="{Binding Path=Value}"/>
+            <Slider x:Name="sldFontSize"
+                    Maximum="50"
+                    Minimum="16"/>
+            <Label x:Name="lblQuotes"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center" 
+                   BindingContext="{x:Reference Name=sldFontSize}"
+                   FontSize="{Binding Path=Value}"/>
+            <Button x:Name="btnNextQuote"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Text="Next Quote"
+                    Clicked="btnNextQuote_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+    <ContentPage.Padding>
+        <OnPlatform	x:TypeArguments="Thickness"
+							WinPhone="20,40,20,20"	
+							Android="20,30,20,20"/>
+    </ContentPage.Padding>
+</ContentPage>
